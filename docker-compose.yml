@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  pulsecheck:
+    build: .
+    container_name: pulsecheck_ai
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    restart: always
